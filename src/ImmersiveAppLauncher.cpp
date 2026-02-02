@@ -6,6 +6,7 @@
 #include <initguid.h>
 #include <wincodec.h>
 #include <windowsx.h>
+#include <uxtheme.h>
 #include "resource.h"
 #include "wil/resource.h"
 #include "wil/com.h"
@@ -523,6 +524,8 @@ static LRESULT CALLBACK ImmersiveAppLauncherWndProc(
 				0, 0, 0, 0,
 				hwnd, NULL, NULL, nullptr
 			);
+			SetWindowTheme(g_hwndList, L"Explorer", nullptr);
+			ListView_SetExtendedListViewStyle(g_hwndList, LVS_EX_DOUBLEBUFFER);
 			UpdateView();
 
 			ResetImageLists();
