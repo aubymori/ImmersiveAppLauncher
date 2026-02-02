@@ -451,6 +451,7 @@ static HRESULT CreateAppShortcut()
 	int iItem = ListView_GetNextItem(g_hwndList, -1, LVNI_SELECTED);
 	LVITEMW lvi = { 0 };
 	lvi.mask = LVIF_TEXT;
+	lvi.iItem = iItem;
 	lvi.pszText = szItemName;
 	lvi.cchTextMax = ARRAYSIZE(szItemName);
 	ListView_GetItem(g_hwndList, &lvi);
