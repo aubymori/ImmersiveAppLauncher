@@ -1,0 +1,63 @@
+#include <windows.h>
+#include "resource.h"
+
+IDI_APP  ICON  "app.ico"
+
+IDR_MAINMENU MENUEX
+{
+	POPUP "&App"
+	{
+		MENUITEM "&Open", IDM_APP_OPEN,, MFS_DEFAULT
+		MENUITEM "&Create Shortcut...", IDM_APP_CREATESHORTCUT
+		MENUITEM "", -1, MFT_SEPARATOR
+		MENUITEM "E&xit", IDM_APP_EXIT
+	}
+	POPUP "&View"
+	{
+		MENUITEM "&Refresh", IDM_VIEW_REFRESH
+		MENUITEM "", -1, MFT_SEPARATOR
+		MENUITEM "&Icons", IDM_VIEW_ICONS, MFT_RADIOCHECK
+		MENUITEM "&List", IDM_VIEW_LIST, MFT_RADIOCHECK
+	}
+	POPUP "&Help"
+	{
+		MENUITEM "&About...", IDM_HELP_ABOUT
+	}
+}
+
+IDR_LISTITEMMENU MENUEX
+{
+	POPUP ""
+	{
+		MENUITEM "&Open", IDM_APP_OPEN,, MFS_DEFAULT
+		MENUITEM "&Create Shortcut...", IDM_APP_CREATESHORTCUT
+	}
+}
+
+IDR_LISTMENU MENUEX
+{
+	POPUP ""
+	{
+		MENUITEM "&Refresh", IDM_VIEW_REFRESH
+		MENUITEM "", -1, MFT_SEPARATOR
+		MENUITEM "&Icons", IDM_VIEW_ICONS, MFT_RADIOCHECK
+		MENUITEM "&List", IDM_VIEW_LIST, MFT_RADIOCHECK
+	}
+}
+
+#include <ntverp.h>
+#define VER_FILETYPE                    VFT_APP
+#define VER_FILESUBTYPE                 VFT_UNKNOWN
+#undef  VER_COMPANYNAME_STR
+#define VER_COMPANYNAME_STR             "aubymori"
+#undef  VER_PRODUCTNAME_STR
+#define VER_PRODUCTNAME_STR             "Immersive App Launcher"
+#define VER_FILEDESCRIPTION_STR         "Immersive App Launcher"
+#define VER_INTERNALNAME_STR            "ImmersiveAppLauncher"
+#define VER_LEGALCOPYRIGHT_YEARS        "2026"
+#define VER_ORIGINALFILENAME_STR        "ImmersiveAppLauncher.exe"
+#undef  VER_PRODUCTVERSION
+#define VER_PRODUCTVERSION              VER_MAJOR,VER_MINOR,VER_REVISION,0
+#undef  VER_PRODUCTVERSION_STR
+#define VER_PRODUCTVERSION_STR          VER_STRING
+#include <common.ver>
